@@ -4,6 +4,8 @@ from django.db import models
 
 
 class User(AbstractUser):
+    """Пользователь со своим балансом, который может быть использован для оплаты заказов."""
+
     balance = models.DecimalField(
         max_digits=12,
         decimal_places=2,
