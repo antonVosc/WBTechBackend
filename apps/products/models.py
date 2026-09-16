@@ -11,7 +11,7 @@ class Product(models.Model):
         max_digits=12, decimal_places=2, validators=[MinValueValidator(Decimal("0.01"))]
     )
     stock = models.PositiveIntegerField(
-        default=0, help_text="Quantity available in stock."
+        default=0, help_text="Количество на складе"
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -19,9 +19,9 @@ class Product(models.Model):
     class Meta:
         ordering = ["-created_at"]
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
 
     @property
-    def in_stock(self) -> bool:
+    def in_stock(self):
         return self.stock > 0
