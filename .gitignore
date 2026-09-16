@@ -5,5 +5,8 @@ apps/products/__pycache__/*
 apps/products/migrations/__pycache__/*
 apps/users/migrations/__pycache__/*
 apps/cart/__pycache__/*
+apps/cart/migrations/__pycache__/*
+apps/orders/__pycache__/*
+apps/orders/migrations/__pycache__/*
 .vscode/*
 logs/*
