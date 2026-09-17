@@ -90,11 +90,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "shop",
-        "USER": "shop_user",
-        "PASSWORD": "shop_password",
-        "HOST": "localhost",
-        "PORT": "5434",
+        "NAME": os.getenv("POSTGRES_DB", "shop"),
+        "USER": os.getenv("POSTGRES_USER", "shop_user"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "shop_password"),
+        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+        "PORT": os.getenv("POSTGRES_PORT", "5434"),
     }
 }
 
@@ -160,6 +160,14 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": True,
 }
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Shop API",
+    "DESCRIPTION": "REST API интернет-магазина.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}
+
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "shop@example.com"
