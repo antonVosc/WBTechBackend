@@ -7,15 +7,18 @@ REST API интернет-магазина на Django REST Framework: реги�
 
 ## Запуск
 
-1. ```bash
+1. 
+```bash
 git clone https://github.com/antonVosc/WBTechBackend.git
 ```
 
-2. ```bash
+2. 
+```bash
 cd WBTechBackend/
 ```
 
-3. ```bash
+3. 
+```bash
 docker-compose up --build
 ```
 
@@ -32,25 +35,30 @@ docker-compose exec web python manage.py test
 
 ## Запуск без Docker (локально)
 
-1. ```bash
+1. 
+```bash
 python -m venv .venv && source .venv/bin/activate
 ```
 
-2. ```bash
+2. 
+```bash
 pip install -r requirements.txt
 ```
 
 #  POSTGRES_HOST=localhost в .env
 
-3. ```bash
+3. 
+```bash
 python manage.py migrate
 ```
 
-4. ```bash
+4. 
+```bash
 python manage.py createsuperuser
 ```
 
-5. ```bash
+5. 
+```bash
 python manage.py runserver
 ```
 
