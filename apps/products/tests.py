@@ -26,7 +26,7 @@ class ProductPermissionsTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_anonymous_cannot_create_product(self):
-        response = self.client.get(
+        response = self.client.post(
             reverse("product-list"), {"name": "X", "price": "1.00", "stock": 1}
         )
 
@@ -34,7 +34,7 @@ class ProductPermissionsTests(APITestCase):
 
     def test_regular_user_cannot_create_product(self):
         self.client.force_authenticate(user=self.regular)
-        response = self.client.get(
+        response = self.client.post(
             reverse("product-list"), {"name": "X", "price": "1.00", "stock": 1}
         )
 
@@ -42,7 +42,7 @@ class ProductPermissionsTests(APITestCase):
 
     def test_admin_can_create_product(self):
         self.client.force_authenticate(user=self.admin)
-        response = self.client.get(
+        response = self.client.post(
             reverse("product-list"), {"name": "X", "price": "1.00", "stock": 1}
         )
 

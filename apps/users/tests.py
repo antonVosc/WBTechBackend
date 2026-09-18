@@ -41,7 +41,7 @@ class ProfileTests(APITestCase):
         response = self.client.get(reverse("user-profile"))
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["username", "Екатерина"])
+        self.assertEqual(response.data["username"], "Екатерина")
 
     def test_top_up_balance(self):
         response = self.client.post(reverse("user-top-up"), {"amount": "100.00"})
